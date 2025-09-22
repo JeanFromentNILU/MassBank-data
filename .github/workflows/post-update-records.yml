@@ -74,5 +74,8 @@ jobs:
 
           echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
 
+          # push changes to a new branch on GitHub
+          git push origin $branch
+
           # create pull request
           gh pr create --base dev --head $branch --title "Post-Update records" --body "This PR updates the records in case of missing properties, e.g. ChemOnt annotations"
